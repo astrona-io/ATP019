@@ -1,0 +1,118 @@
+apiVersion: content.astrona.io/v1alpha1
+kind: TrainingPath
+metadata:
+  id: ATP019
+  slug: fluxcd
+  title: "FluxCD"
+  description: >-
+    The FluxCD track: one course per domain — GitOps fundamentals and the
+    GitOps Toolkit architecture, sources and repository management,
+    Kustomize and Helm reconciliation, secrets and webhook receivers, image
+    automation and progressive delivery, and multi-tenancy and operations —
+    with readings, ungraded playgrounds and graded hands-on labs that run on
+    your own computer with the Astrona CLI.
+  version: "0.1.0"
+  language: "en"
+  maturity: draft
+  authors:
+    - name: "Paris Nakita Kejser"
+      email: "paris@astrona.io"
+      company: "Astrona.io"
+  tags:
+    - "Flux"
+    - "FluxCD"
+    - "GitOps"
+    - "Continuous Delivery"
+    - "CNCF"
+  license: "Apache-2.0"
+
+spec:
+  audience: "Kubernetes and platform engineers who deliver to clusters with GitOps."
+  difficulty: "Intermediate"
+
+  # There is no official Flux certification exam. The domains and their
+  # weights below are Astrona's own. (The Certified GitOps Associate exam
+  # covers Flux only as one tool among several.)
+  examPreparation:
+    enabled: false
+
+  prerequisites:
+    - "Working knowledge of Kubernetes: pods, deployments, services, secrets and kubectl."
+    - "Comfort with Git from the terminal: clone, commit, push and pull."
+    - "A computer that can run the Astrona CLI with Docker or Podman, for the labs."
+
+  learningOutcomes:
+    - "Explain the GitOps principles and the GitOps Toolkit, and bootstrap Flux into a cluster."
+    - "Manage Git, OCI, Helm and bucket sources, with authentication and reconciliation triggers."
+    - "Deliver applications with Flux Kustomizations and HelmReleases, dependencies, health checks and drift correction."
+    - "Keep secrets in Git with SOPS, and trigger reconciliation from webhooks."
+    - "Automate image updates back to Git and roll out releases progressively with Flagger."
+    - "Run Flux for many tenants with impersonation, alerting, monitoring and disaster recovery."
+
+  # One stage per domain. Weights follow the path's own domain plan.
+  stages:
+    - id: "ATP019-STG001"
+      title: "Fundamentals & GitOps Toolkit Architecture"
+      description: "GitOps principles and pull-based delivery, the reconciliation loop, the GitOps Toolkit controllers and the Flux CLI, and bootstrapping Flux into a cluster."
+      weight: 10
+      maturity: draft
+      content:
+        - ref: ATS094
+          repository: "https://github.com/astrona-io/ATS094"
+          path: "."
+          version: "0.1.0"
+
+    - id: "ATP019-STG002"
+      title: "Source Controller & Repository Management"
+      description: "GitRepository, OCIRepository, HelmRepository and Bucket sources, polling, SSH and HTTPS authentication, artifacts and caching."
+      weight: 20
+      maturity: draft
+      content:
+        - ref: ATS095
+          repository: "https://github.com/astrona-io/ATS095"
+          path: "."
+          version: "0.1.0"
+
+    - id: "ATP019-STG003"
+      title: "Kustomize & Helm Controller Reconciliation"
+      description: "Flux Kustomizations and HelmReleases, dependsOn ordering, health checks, drift detection, pruning and automated rollback."
+      weight: 25
+      maturity: draft
+      content:
+        - ref: ATS096
+          repository: "https://github.com/astrona-io/ATS096"
+          path: "."
+          version: "0.1.0"
+
+    - id: "ATP019-STG004"
+      title: "Secret Management, SOPS & Webhook Receivers"
+      description: "Secrets in GitOps with SOPS, Sealed Secrets and External Secrets Operator, SOPS with age and cloud KMS keys, and Receivers for webhook-triggered reconciliation."
+      weight: 15
+      maturity: draft
+      content:
+        - ref: ATS097
+          repository: "https://github.com/astrona-io/ATS097"
+          path: "."
+          version: "0.1.0"
+
+    - id: "ATP019-STG005"
+      title: "Image Automation & Progressive Delivery"
+      description: "ImageRepository, ImagePolicy and ImageUpdateAutomation for automated Git write-backs, and progressive delivery with Flagger canaries and A/B testing."
+      weight: 15
+      maturity: draft
+      content:
+        - ref: ATS098
+          repository: "https://github.com/astrona-io/ATS098"
+          path: "."
+          version: "0.1.0"
+
+    - id: "ATP019-STG006"
+      title: "Multi-Tenancy, Enterprise Operations & Cluster Management"
+      description: "Service account impersonation and tenant lockdown, cross-namespace references, Cluster API integration, alerting with Provider and Alert, Prometheus monitoring and disaster recovery."
+      weight: 15
+      maturity: draft
+      content:
+        - ref: ATS099
+          repository: "https://github.com/astrona-io/ATS099"
+          path: "."
+          version: "0.1.0"
